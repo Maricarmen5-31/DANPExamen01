@@ -1,4 +1,4 @@
-package com.example.danpexamen01.interfaces
+package com.example.danpexamen01.interfaces.forgotPassword
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
@@ -15,6 +15,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.danpexamen01.interfaces.CustomTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -26,7 +27,8 @@ fun ForgotPassword(navController: NavController) {
                 navController = navController,
                 title = "Forgot Password",
                 showBackIcon = true
-            )},
+            )
+            },
             content = {
                 Column(
                     modifier = Modifier.padding(20.dp),

@@ -1,4 +1,4 @@
-package com.example.danpexamen01.interfaces
+package com.example.danpexamen01.interfaces.login
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape

@@ -9,13 +9,14 @@ import com.example.danpexamen01.domain.model.UsuarioEntity
 
 @Database(
     entities = [UsuarioEntity::class, IncidenciaEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun usuarioDao(): UsuarioDao
     abstract fun incidenciaDao(): IncidenciaDao
 
-    companion object {
+    /*companion object {
         private var INSTANCE: AppDatabase? = null
         fun getInstance(context: Context): AppDatabase {
             synchronized(this) {
@@ -34,5 +35,5 @@ abstract class AppDatabase : RoomDatabase() {
                 return instance
             }
         }
-    }
+    }*/
 }

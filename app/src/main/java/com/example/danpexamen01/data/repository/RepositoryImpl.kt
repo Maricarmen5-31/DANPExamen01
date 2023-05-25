@@ -5,20 +5,21 @@ import com.example.danpexamen01.domain.model.IncidenciaEntity
 import com.example.danpexamen01.domain.repository.Repository
 import com.example.danpexamen01.domain.model.UsuarioEntity
 
+typealias Incidencias = List<IncidenciaEntity>
 class RepositoryImpl(
     private val appDatabase: AppDatabase
 ): Repository{
 
-    override suspend fun getAllUsuarios() = appDatabase.usuarioDao().getUsuarios()
-    override suspend fun addUsuario(usuarioEntity: UsuarioEntity) = appDatabase.usuarioDao().addUsuario(usuarioEntity)
-    override suspend fun getUsuario(correoId: String) = appDatabase.usuarioDao().getUsuario(correoId)
-    override suspend fun updateUsuario(usuarioEntity: UsuarioEntity) = appDatabase.usuarioDao().updateUsuario(usuarioEntity)
+    override fun getAllUsuarios() = appDatabase.usuarioDao().getUsuarios()
+    override fun addUsuario(usuarioEntity: UsuarioEntity) = appDatabase.usuarioDao().addUsuario(usuarioEntity)
+    override fun getUsuario(correoId: String) = appDatabase.usuarioDao().getUsuario(correoId)
+    override fun updateUsuario(usuarioEntity: UsuarioEntity) = appDatabase.usuarioDao().updateUsuario(usuarioEntity)
 
-    override suspend fun getAllIncidencias() = appDatabase.incidenciaDao().getIncidencias()
-    override suspend fun addIncidencia(incidenciaEntity: IncidenciaEntity) = appDatabase.incidenciaDao().addIncidencia(incidenciaEntity)
-    override suspend fun getIncidencia(incidenciaId: Int) = appDatabase.incidenciaDao().getIncidencia(incidenciaId)
-    override suspend fun updateIncidencia(incidenciaEntity: IncidenciaEntity) = appDatabase.incidenciaDao().updateIncidencia(incidenciaEntity)
+    override fun getAllIncidencias() = appDatabase.incidenciaDao().getIncidencias()
+    override fun addIncidencia(incidenciaEntity: IncidenciaEntity) = appDatabase.incidenciaDao().addIncidencia(incidenciaEntity)
+    override fun getIncidencia(incidenciaId: Int) = appDatabase.incidenciaDao().getIncidencia(incidenciaId)
+    override fun updateIncidencia(incidenciaEntity: IncidenciaEntity) = appDatabase.incidenciaDao().updateIncidencia(incidenciaEntity)
 
-    override suspend fun getUsuarioWithIncidencias() = appDatabase.usuarioDao().getUsuarioWithIncidencias()
+    override fun getUsuarioWithIncidencias() = appDatabase.usuarioDao().getUsuarioWithIncidencias()
 
 }

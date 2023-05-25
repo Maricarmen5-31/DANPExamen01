@@ -11,17 +11,17 @@ import com.example.danpexamen01.domain.model.IncidenciaEntity
 @Dao
 interface IncidenciaDao {
     @Query("SELECT * FROM $INCIDENCIA_TABLE")
-    suspend fun getIncidencias(): List<IncidenciaEntity>
+    fun getIncidencias(): List<IncidenciaEntity>
 
     @Query("SELECT * FROM $INCIDENCIA_TABLE WHERE incidenciaId = :incidenciaId")
-    suspend fun getIncidencia(incidenciaId: Int): IncidenciaEntity
+    fun getIncidencia(incidenciaId: Int): IncidenciaEntity
 
     @Insert
-    suspend fun addIncidencia(incidenciaEntity: IncidenciaEntity)
+    fun addIncidencia(incidenciaEntity: IncidenciaEntity)
 
     @Update
-    suspend fun updateIncidencia(incidenciaEntity: IncidenciaEntity)
+    fun updateIncidencia(incidenciaEntity: IncidenciaEntity)
 
     @Delete
-    suspend fun deleteIncidencia(incidenciaEntity: IncidenciaEntity)
+    fun deleteIncidencia(incidenciaEntity: IncidenciaEntity)
 }
