@@ -6,8 +6,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.modifier.modifierLocalConsumer
@@ -52,13 +55,14 @@ fun RegisterIncident(navController: NavController) {
                     mutableStateOf("")
                 }
 
-                val descripcion= remember {
+                val descripcion = remember {
                     mutableStateOf("")
                 }
 
-                val ubicacion= remember {
+                val ubicacion = remember {
                     mutableStateOf("")
                 }
+
 
                 CalendarDialog(
                     state = calendarState,
@@ -134,10 +138,14 @@ fun RegisterIncident(navController: NavController) {
 
                 Spacer(modifier = Modifier.height(30.dp))
 
+                var show by rememberSaveable {
+                    mutableStateOf(false)
+                }
+
                 Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
                     Button(
                         onClick = {
-                                  //
+                                  show = true
                         },
                         shape = RoundedCornerShape(50.dp),
                         modifier = Modifier
@@ -147,7 +155,29 @@ fun RegisterIncident(navController: NavController) {
                         Text(text = "Registrar Incidente")
                     }
                 }
+
+                DialogConfirm(show, {show = false}, {Log.i("accion", "click")})
             }
         }
     )
 }
+
+@Composable
+fun DialogConfirm(
+    show: Boolean,
+    onDismiss: () -> Unit,
+    onConfirm: () -> Unit
+) {
+    if(show) {
+        AlertDialog(onDismissRequest = { onDismiss() },
+            confirmButton = { TextButton(onClick = { onConfirm() }) {
+                Text(text = "Aceptar")
+            }},
+            dismissButton = { TextButton(onClick = { onDismiss() }) {
+                Text(text = "Cancelar")
+            }},
+            title = { Text(text = "CONFIRMACION DE REGISTRO") },
+            text = { Text(text = "¿Estas seguro de registrar esta incidencia?")})
+    }
+}
+
