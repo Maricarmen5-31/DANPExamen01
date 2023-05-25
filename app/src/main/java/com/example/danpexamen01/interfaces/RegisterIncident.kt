@@ -1,6 +1,7 @@
 package com.example.danpexamen01.interfaces
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -9,16 +10,23 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.maxkeppeker.sheets.core.models.base.rememberSheetState
+import com.maxkeppeler.sheets.calendar.CalendarDialog
+import com.maxkeppeler.sheets.calendar.models.CalendarSelection
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun RegisterIncident(navController: NavController) {
+
+    val calendarState = rememberSheetState()
+
     Scaffold(
         topBar = { CustomTopAppBar(
             navController = navController,
@@ -29,7 +37,7 @@ fun RegisterIncident(navController: NavController) {
             Column(
                 modifier = Modifier.padding(20.dp),
                 verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
 
                 val nombres = remember {
@@ -52,6 +60,13 @@ fun RegisterIncident(navController: NavController) {
                     mutableStateOf("")
                 }
 
+                CalendarDialog(
+                    state = calendarState,
+                    selection = CalendarSelection.Date { date ->
+                        fecha.value = "$date"
+                    }
+                )
+
                 Spacer(modifier = Modifier.height(100.dp))
 
                 Text(
@@ -66,14 +81,33 @@ fun RegisterIncident(navController: NavController) {
                     value = nombres.value,
                     onValueChange = { nombres.value = it }
                 )
+
                 Spacer(modifier = Modifier.height(15.dp))
 
-                TextField(
-                    label = { Text(text = "Fecha") },
-                    value = fecha.value,
-                    onValueChange = { fecha.value = it }
-                )
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center,
+                ) {
+                    TextField(
+                        modifier = Modifier.width(174.dp),
+                        label = { Text(text = "Fecha") },
+                        value = fecha.value,
+                        onValueChange = { fecha.value = it }
+                    )
+                    Button(
+                        onClick = { calendarState.show() },
+                        shape = RoundedCornerShape(50.dp),
+                        modifier = Modifier
+                            .padding(15.dp, 0.dp, 0.dp, 0.dp)
+                            .height(40.dp)
+                            .width(90.dp)
 
+                    ) {
+                        Text(text = "Ver")
+                    }
+                }
                 Spacer(modifier = Modifier.height(15.dp))
 
                 TextField(
@@ -99,15 +133,6 @@ fun RegisterIncident(navController: NavController) {
                 )
 
                 Spacer(modifier = Modifier.height(30.dp))
-
-                /*Text(
-                    text = "Fecha Actual: ${fecha.value}",
-                    style = MaterialTheme.typography.subtitle1,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(bottom = 16.dp)
-                )
-
-                Spacer(modifier = Modifier.height(15.dp))*/
 
                 Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
                     Button(
