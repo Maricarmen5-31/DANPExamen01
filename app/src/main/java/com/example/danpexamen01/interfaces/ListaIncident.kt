@@ -15,11 +15,19 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.danpexamen01.data.repository.Incidencias
+import com.example.danpexamen01.domain.model.UsuarioWithIncidencias
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun ListaIncident(navController: NavController) {
+fun ListaIncident(
+    navController: NavController,
+    //incidencias: Incidencias
+
+   ) {
+
     Box(modifier = Modifier.fillMaxSize()) {
         Scaffold(
             topBar = { CustomTopAppBar(
@@ -34,7 +42,12 @@ fun ListaIncident(navController: NavController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     LazyColumn {
-                        //
+
+                       /* items(incidencias){incidencia->
+                            IncidenciaCard(
+                                incidenciaEntity = incidencia
+                            )
+                        }*/
                     }
                 }
             }

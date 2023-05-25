@@ -1,4 +1,4 @@
-package com.example.danpexamen01.interfaces
+package com.example.danpexamen01.interfaces.registerIncident
 
 import android.annotation.SuppressLint
 import android.util.Log
@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.danpexamen01.interfaces.CustomTopAppBar
 import com.maxkeppeker.sheets.core.models.base.rememberSheetState
 import com.maxkeppeler.sheets.calendar.CalendarDialog
 import com.maxkeppeler.sheets.calendar.models.CalendarSelection
@@ -35,7 +36,8 @@ fun RegisterIncident(navController: NavController) {
             navController = navController,
             title = "Registro de Asistentes",
             showBackIcon = true
-        )},
+        )
+        },
         content = {
             Column(
                 modifier = Modifier.padding(20.dp),

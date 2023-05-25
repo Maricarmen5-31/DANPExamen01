@@ -15,7 +15,7 @@ class Constantes {
         // Buttons
 
         // Placeholders
-
+        const val NO_VALUE = ""
 
     }
 }

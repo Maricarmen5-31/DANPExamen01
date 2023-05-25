@@ -3,18 +3,19 @@ package com.example.danpexamen01.domain.repository
 import com.example.danpexamen01.domain.model.IncidenciaEntity
 import com.example.danpexamen01.domain.model.UsuarioEntity
 import com.example.danpexamen01.domain.model.UsuarioWithIncidencias
+import kotlinx.coroutines.flow.Flow
 
 interface Repository {
-    suspend fun getAllUsuarios(): List<UsuarioEntity>
-    suspend fun addUsuario(usuarioEntity: UsuarioEntity)
-    suspend fun getUsuario(correoId: String): UsuarioEntity
-    suspend fun updateUsuario(usuarioEntity: UsuarioEntity)
+    fun getAllUsuarios(): Flow<UsuarioEntity>
+    fun addUsuario(usuarioEntity: UsuarioEntity)
+    fun getUsuario(correoId: String): UsuarioEntity
+    fun updateUsuario(usuarioEntity: UsuarioEntity)
 
-    suspend fun getAllIncidencias(): List<IncidenciaEntity>
-    suspend fun addIncidencia(incidenciaEntity: IncidenciaEntity)
-    suspend fun getIncidencia(incidenciaId: Int): IncidenciaEntity
-    suspend fun updateIncidencia(incidenciaEntity: IncidenciaEntity)
+    fun getAllIncidencias(): Flow<IncidenciaEntity>
+    fun addIncidencia(incidenciaEntity: IncidenciaEntity)
+    fun getIncidencia(incidenciaId: Int): IncidenciaEntity
+    fun updateIncidencia(incidenciaEntity: IncidenciaEntity)
 
-    suspend fun getUsuarioWithIncidencias(): List<UsuarioWithIncidencias>
+    fun getUsuarioWithIncidencias(): Flow<UsuarioWithIncidencias>
 
 }

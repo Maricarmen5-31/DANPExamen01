@@ -7,21 +7,22 @@ import androidx.room.Query
 import androidx.room.Update
 import com.example.danpexamen01.core.Constantes.Companion.INCIDENCIA_TABLE
 import com.example.danpexamen01.domain.model.IncidenciaEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface IncidenciaDao {
     @Query("SELECT * FROM $INCIDENCIA_TABLE")
-    suspend fun getIncidencias(): List<IncidenciaEntity>
+    fun getIncidencias(): Flow<IncidenciaEntity>
 
     @Query("SELECT * FROM $INCIDENCIA_TABLE WHERE incidenciaId = :incidenciaId")
-    suspend fun getIncidencia(incidenciaId: Int): IncidenciaEntity
+    fun getIncidencia(incidenciaId: Int): IncidenciaEntity
 
     @Insert
-    suspend fun addIncidencia(incidenciaEntity: IncidenciaEntity)
+    fun addIncidencia(incidenciaEntity: IncidenciaEntity)
 
     @Update
-    suspend fun updateIncidencia(incidenciaEntity: IncidenciaEntity)
+    fun updateIncidencia(incidenciaEntity: IncidenciaEntity)
 
     @Delete
-    suspend fun deleteIncidencia(incidenciaEntity: IncidenciaEntity)
+    fun deleteIncidencia(incidenciaEntity: IncidenciaEntity)
 }
