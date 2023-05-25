@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.danpexamen01.ui.theme.PurpleGrey40
+import com.example.danpexamen01.ui.theme.PurpleGrey80
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,7 +39,7 @@ fun LoginPage(navController: NavController) {
                 fontSize = 14.sp,
                 fontFamily = FontFamily.Default,
                 textDecoration = TextDecoration.Underline,
-                color = PurpleGrey40
+                color = PurpleGrey80
             )
         )
     }
