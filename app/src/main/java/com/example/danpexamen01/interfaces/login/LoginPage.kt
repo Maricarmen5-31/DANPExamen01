@@ -105,7 +105,9 @@ fun LoginPage(navController: NavController) {
             onClick = { navController.navigate("forgot-password") },
             style = TextStyle(
                 fontSize = 15.sp,
-                fontFamily = FontFamily.Default
+                fontFamily = FontFamily.Default,
+                textDecoration = TextDecoration.Underline,
+                color = PurpleGrey80
             )
         )
     }
