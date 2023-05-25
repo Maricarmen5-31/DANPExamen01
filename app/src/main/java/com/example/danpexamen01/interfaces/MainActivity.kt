@@ -8,8 +8,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.danpexamen01.ui.theme.DANPExamen01Theme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +27,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    ScreenMain()
                 }
             }
         }
@@ -30,17 +35,23 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun ScreenMain() {
+    val navController = rememberNavController()
+
+    NavHost(navController = navController, startDestination = "login") {
+        composable("login") { LoginPage(navController) }
+        composable("menu") { PrincipalMenu(navController = navController) }
+        composable("signup") { SignUp(navController = navController)}
+        composable("forgot-password") { ForgotPassword(navController = navController)}
+        composable("registrar-incident") { RegisterIncident(navController = navController) }
+        composable("listado_incident") { ListaIncident(navController = navController) }
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun ScreenPreview() {
     DANPExamen01Theme {
-        Greeting("Android")
+        ScreenMain()
     }
 }
