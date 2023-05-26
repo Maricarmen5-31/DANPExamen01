@@ -23,7 +23,6 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.danpexamen01.data.repository.Incidencias
 import com.example.danpexamen01.domain.model.IncidenciaEntity
 import com.example.danpexamen01.domain.model.UsuarioWithIncidencias
 import com.example.danpexamen01.ui.theme.Pink40
