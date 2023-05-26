@@ -13,11 +13,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.danpexamen01.interfaces.forgotPassword.ForgotPassword
-import com.example.danpexamen01.interfaces.login.LoginPage
-import com.example.danpexamen01.interfaces.registerIncident.RegisterIncident
+import com.example.danpexamen01.interfaces.listaIncidentes.IncidentesScreen
+import com.example.danpexamen01.interfaces.login.LoginScreen
+import com.example.danpexamen01.interfaces.register.RegisterScreen
+import com.example.danpexamen01.interfaces.registerIncident.RegisterIncidentScreen
 import com.example.danpexamen01.ui.theme.DANPExamen01Theme
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,12 +49,12 @@ fun ScreenMain(
 
     //val incidencias by viewModel.incidencias.toCollection()
     NavHost(navController = navController, startDestination = "login") {
-        composable("login") { LoginPage(navController) }
+        composable("login") { LoginScreen(navController) }
         composable("menu") { PrincipalMenu(navController = navController) }
-        composable("signup") { SignUp(navController = navController) }
+        composable("signup") { RegisterScreen(navController = navController) }
         composable("forgot-password") { ForgotPassword(navController = navController) }
-        composable("registrar-incident") { RegisterIncident(navController = navController) }
-        composable("listado_incident") { ListaIncident(navController = navController) }
+        composable("registrar-incident") { RegisterIncidentScreen(navController = navController) }
+        composable("listado_incident") { IncidentesScreen(navController = navController) }
     }
 }
 
