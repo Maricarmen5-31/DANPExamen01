@@ -52,6 +52,7 @@ fun ScreenMain(
         composable("forgot-password") { ForgotPassword(navController = navController) }
         composable("registrar-incident") { RegisterIncident(navController = navController) }
         composable("listado_incident") { ListaIncident(navController = navController) }
+        composable("recomend") { Recomend(navController = navController) }
     }
 }
 

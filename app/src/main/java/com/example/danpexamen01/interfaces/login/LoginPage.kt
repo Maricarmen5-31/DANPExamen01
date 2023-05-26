@@ -39,7 +39,7 @@ fun LoginPage(navController: NavController) {
                 fontSize = 14.sp,
                 fontFamily = FontFamily.Default,
                 textDecoration = TextDecoration.Underline,
-                color = PurpleGrey80
+                color = PurpleGrey40
             )
         )
     }
@@ -63,8 +63,8 @@ fun LoginPage(navController: NavController) {
         Spacer(modifier = Modifier.height(100.dp))
 
         Text(
-            text = "Login",
-            style = TextStyle(fontSize = 40.sp, fontFamily = FontFamily.SansSerif)
+            text = "Inicio de Sesión",
+            style = TextStyle(fontSize = 40.sp, fontFamily = FontFamily.Serif)
         )
 
         Spacer(modifier = Modifier.height(40.dp))
@@ -107,7 +107,7 @@ fun LoginPage(navController: NavController) {
                 fontSize = 15.sp,
                 fontFamily = FontFamily.Default,
                 textDecoration = TextDecoration.Underline,
-                color = PurpleGrey80
+                color = PurpleGrey40
             )
         )
     }
