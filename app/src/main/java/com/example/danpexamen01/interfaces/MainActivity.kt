@@ -14,7 +14,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.danpexamen01.interfaces.forgotPassword.ForgotPassword
 import com.example.danpexamen01.interfaces.login.LoginPage
-import com.example.danpexamen01.interfaces.login.LoginScreen
 import com.example.danpexamen01.ui.theme.DANPExamen01Theme
 
 
@@ -48,7 +47,6 @@ fun ScreenMain(
     NavHost(navController = navController, startDestination = "login") {
         composable("login") { LoginPage(navController) }
         composable("menu") { PrincipalMenu(navController = navController) }
-        composable("signup") { LoginScreen(navController = navController) }
         composable("forgot-password") { ForgotPassword(navController = navController) }
         composable("listado_incident") { ListaIncident(navController = navController) }
         composable("recomend") { Recomend(navController = navController) }
