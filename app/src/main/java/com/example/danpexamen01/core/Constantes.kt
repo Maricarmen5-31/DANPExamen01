@@ -7,6 +7,8 @@ class Constantes {
         const val INCIDENCIA_TABLE = "incidencia"
 
         // Screens
+        const val REGISTER_SCREEN = "Register"
+        const val LOGIN_SCREEN = "Login"
 
         // Arguments
 
@@ -15,6 +17,12 @@ class Constantes {
         // Buttons
 
         // Placeholders
+        const val CORREO = "Correo"
+        const val NOMBRE = "Nombre"
+        const val APELLIDO = "Apellido"
+        const val CONTRASEÑA = "Contraseña"
+        const val CONFIR_CONTRASEÑA = "Confirmar contraseña"
+
         const val NO_VALUE = ""
 
     }
