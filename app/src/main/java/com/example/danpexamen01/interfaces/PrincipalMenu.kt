@@ -64,11 +64,11 @@ fun PrincipalMenu(
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(100.dp))
+                    Spacer(modifier = Modifier.height(50.dp))
 
                     Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
                         Button(
-                            onClick = { navController.navigate("listado") },
+                            onClick = { navController.navigate("listado_incident") },
                             shape = RoundedCornerShape(50.dp),
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -78,7 +78,21 @@ fun PrincipalMenu(
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(100.dp))
+                    Spacer(modifier = Modifier.height(50.dp))
+
+                    Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
+                        Button(
+                            onClick = { navController.navigate("recomend") },
+                            shape = RoundedCornerShape(50.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(50.dp)
+                        ) {
+                            Text(text = "Recomendaciones y Consejos")
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(50.dp))
 
                     Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
                         Button(
