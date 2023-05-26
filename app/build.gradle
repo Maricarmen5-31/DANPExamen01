@@ -1,9 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'com.google.relay' version '0.3.06'
-    id 'kotlin-kapt'
 }
 
 android {
@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.danpexamen01"
-        minSdk 25
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -88,8 +88,4 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:2.5.3"
     implementation 'com.maxkeppeler.sheets-compose-dialogs:calendar:1.0.2'
 
-}
-// Allow references to generated code
-kapt {
-    correctErrorTypes true
 }

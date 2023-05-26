@@ -34,8 +34,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.danpexamen01.ui.theme.PurpleGrey80
 import com.example.danpexamen01.core.Constantes
-import com.example.danpexamen01.core.Constantes.Companion.CORREO
-import com.example.danpexamen01.core.Constantes.Companion.CONTRASEÑA
 import com.example.danpexamen01.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -60,12 +58,6 @@ fun LoginScreen(
             text = "MySecurityApp",
             style = TextStyle(fontSize = 60.sp, fontFamily = FontFamily.Cursive)
         )
-        Icon(
-            painter = painterResource(id = R.drawable.baseline_security_24), null,
-            Modifier
-                .size(80.dp),
-            tint = Color.White
-        )
         Text(
             text = "",
             style = TextStyle(fontSize = 5.sp)
@@ -75,10 +67,6 @@ fun LoginScreen(
             value = correo,
             onValueChange = { correo = it },
             leadingIcon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.baseline_email_24),
-                    null
-                )
             }
 
         )
@@ -88,10 +76,6 @@ fun LoginScreen(
             value = contraseña,
             onValueChange = { contraseña = it },
             leadingIcon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.baseline_lock_24),
-                    null
-                )
             },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
 

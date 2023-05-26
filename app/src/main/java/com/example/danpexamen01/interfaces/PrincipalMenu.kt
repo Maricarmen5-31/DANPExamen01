@@ -18,16 +18,12 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun PrincipalMenu(
-    viewModel: ViewModel = hiltViewModel(),
-    navController: NavController
-) {
+fun PrincipalMenu(navController: NavController) {
 
     Box(modifier = Modifier.fillMaxSize()) {
         Scaffold(

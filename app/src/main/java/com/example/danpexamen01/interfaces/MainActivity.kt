@@ -13,11 +13,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.danpexamen01.interfaces.forgotPassword.ForgotPassword
-import com.example.danpexamen01.interfaces.listaIncidentes.IncidenciaCard
-import com.example.danpexamen01.interfaces.listaIncidentes.IncidentesScreen
 import com.example.danpexamen01.interfaces.login.LoginPage
 import com.example.danpexamen01.interfaces.login.LoginScreen
-import com.example.danpexamen01.interfaces.registerIncident.RegisterIncidentScreen
 import com.example.danpexamen01.ui.theme.DANPExamen01Theme
 
 
@@ -53,8 +50,8 @@ fun ScreenMain(
         composable("menu") { PrincipalMenu(navController = navController) }
         composable("signup") { LoginScreen(navController = navController) }
         composable("forgot-password") { ForgotPassword(navController = navController) }
-        composable("registrar-incident") { RegisterIncidentScreen(navController = navController) }
-        composable("listado_incident") { IncidentesScreen(navController = navController) }
+        composable("listado_incident") { ListaIncident(navController = navController) }
+        composable("recomend") { Recomend(navController = navController) }
     }
 }
 

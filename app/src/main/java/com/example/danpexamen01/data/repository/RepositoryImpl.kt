@@ -5,6 +5,7 @@ import com.example.danpexamen01.domain.model.IncidenciaEntity
 import com.example.danpexamen01.domain.repository.Repository
 import com.example.danpexamen01.domain.model.UsuarioEntity
 
+typealias Incidencias = List<IncidenciaEntity>
 class RepositoryImpl(
     private val appDatabase: AppDatabase
 ): Repository{
@@ -19,6 +20,6 @@ class RepositoryImpl(
     override fun getIncidencia(incidenciaId: Int) = appDatabase.incidenciaDao().getIncidencia(incidenciaId)
     override fun updateIncidencia(incidenciaEntity: IncidenciaEntity) = appDatabase.incidenciaDao().updateIncidencia(incidenciaEntity)
 
-    //override fun getUsuarioWithIncidencias() = usuarioDao.getUsuarioWithIncidencias()
+    override fun getUsuarioWithIncidencias() = appDatabase.usuarioDao().getUsuarioWithIncidencias()
 
 }

@@ -14,18 +14,13 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.danpexamen01.interfaces.CustomTopAppBar
-import com.example.danpexamen01.interfaces.ViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun ForgotPassword(
-    viewModel: ViewModel = hiltViewModel(),
-    navController: NavController
-) {
+fun ForgotPassword(navController: NavController) {
     Box(modifier = Modifier.fillMaxSize()) {
         Scaffold(
             topBar = { CustomTopAppBar(

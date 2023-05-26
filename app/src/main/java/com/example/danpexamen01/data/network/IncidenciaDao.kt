@@ -3,23 +3,21 @@ package com.example.danpexamen01.data.network
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
-import androidx.room.OnConflictStrategy.Companion.IGNORE
 import androidx.room.Query
 import androidx.room.Update
 import com.example.danpexamen01.core.Constantes.Companion.INCIDENCIA_TABLE
 import com.example.danpexamen01.domain.model.IncidenciaEntity
-import com.example.danpexamen01.domain.repository.Incidencias
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface IncidenciaDao {
     @Query("SELECT * FROM $INCIDENCIA_TABLE")
-    fun getIncidencias(): Flow<Incidencias>
+    fun getIncidencias(): Flow<IncidenciaEntity>
 
     @Query("SELECT * FROM $INCIDENCIA_TABLE WHERE incidenciaId = :incidenciaId")
     fun getIncidencia(incidenciaId: Int): IncidenciaEntity
 
-    @Insert(onConflict = IGNORE)
+    @Insert
     fun addIncidencia(incidenciaEntity: IncidenciaEntity)
 
     @Update

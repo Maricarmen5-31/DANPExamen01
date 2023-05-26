@@ -2,14 +2,16 @@ package com.example.danpexamen01.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.danpexamen01.data.network.AppDatabase
-import com.example.danpexamen01.data.repository.RepositoryImpl
-import com.example.danpexamen01.domain.repository.Repository
+import com.example.danpexamen01.core.Constantes.Companion.INCIDENCIA_TABLE
+import com.example.danpexamen01.core.Constantes.Companion.USUARIO_TABLE
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import com.example.danpexamen01.data.network.AppDatabase
+import com.example.danpexamen01.data.repository.RepositoryImpl
+import com.example.danpexamen01.domain.repository.Repository
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -21,8 +23,19 @@ class AppModule {
     ) = Room.databaseBuilder(
         context,
         AppDatabase::class.java,
-        "Seguridad.db"
+        USUARIO_TABLE
     ).build()
+
+    @Provides
+    fun provideIncicenciaDb(
+        @ApplicationContext
+        context: Context
+    ) = Room.databaseBuilder(
+        context,
+        AppDatabase::class.java,
+        INCIDENCIA_TABLE
+    ).build()
+
 
     @Provides
     fun provideUsuarioDao(
@@ -34,10 +47,18 @@ class AppModule {
         appDatabase: AppDatabase
     ) = appDatabase.incidenciaDao()
 
+
     @Provides
-    fun provideRepository(
-        appDatabase: AppDatabase,
+    fun provideUsuarioRepository(
+        usuarioDao: AppDatabase
     ): Repository = RepositoryImpl(
-        appDatabase  = appDatabase
+        appDatabase = usuarioDao
+    )
+
+    @Provides
+    fun provideIncidenciaRepository(
+        incidenciaDao: AppDatabase
+    ): Repository = RepositoryImpl(
+        appDatabase = incidenciaDao
     )
 }

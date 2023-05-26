@@ -9,20 +9,19 @@ import androidx.room.Update
 import com.example.danpexamen01.domain.model.UsuarioEntity
 import com.example.danpexamen01.core.Constantes.Companion.USUARIO_TABLE
 import com.example.danpexamen01.domain.model.UsuarioWithIncidencias
-import com.example.danpexamen01.domain.repository.Usuarios
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UsuarioDao {
     @Query("SELECT * FROM $USUARIO_TABLE")
-    fun getUsuarios(): Flow<Usuarios>
+    fun getUsuarios(): Flow<UsuarioEntity>
 
     @Query("SELECT * FROM $USUARIO_TABLE WHERE correoId = :correoId")
     fun getUsuario(correoId: String): UsuarioEntity
 
-    //@Transaction
-    //@Query("SELECT * FROM $USUARIO_TABLE")
-    //fun getUsuarioWithIncidencias(): Flow<UsuarioWithIncidencias>
+    @Transaction
+    @Query("SELECT * FROM $USUARIO_TABLE")
+    fun getUsuarioWithIncidencias(): Flow<UsuarioWithIncidencias>
 
     @Insert
     fun addUsuario(usuarioEntity: UsuarioEntity)

@@ -5,9 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.danpexamen01.interfaces.listaIncidentes.IncidentesScreen
 import com.example.danpexamen01.interfaces.menu.ItemsMenu.*
-import com.example.danpexamen01.interfaces.registerIncident.RegisterIncidentScreen
+import com.example.danpexamen01.interfaces.registerIncident.RegisterIncident
 import com.example.danpexamen01.interfaces.usuario.Usuario
 
 @Composable
@@ -17,7 +16,7 @@ fun NavigationHost(navController: NavHostController){
     NavHost(navController = navController,
         startDestination = Pantalla2.ruta){
         composable(Pantalla2.ruta){
-            IncidentesScreen(navController = navController)
+            ListaIncident(navController = navController)
         }
         
         composable(Pantalla1.ruta){
@@ -25,7 +24,7 @@ fun NavigationHost(navController: NavHostController){
         }
 
         composable(Pantalla3.ruta){
-            RegisterIncidentScreen(navController = navController)
+            RegisterIncident(navController = navController)
         }
     }
 
