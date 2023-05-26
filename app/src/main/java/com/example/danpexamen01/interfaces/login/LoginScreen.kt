@@ -1,5 +1,8 @@
 package com.example.danpexamen01.interfaces.login
 
+import android.content.Context
+import android.net.Uri
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
@@ -41,38 +44,34 @@ fun LoginScreen(
     navController: NavController,
     viewModel: ViewModel = hiltViewModel()
 ) {
-    /*Box(modifier = Modifier.fillMaxSize()) {
-        ClickableText(
-            text = AnnotatedString("Signup Here"),
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(20.dp),
-            onClick = { navController.navigate("signup") },
-            style = TextStyle(
-                fontSize = 14.sp,
-                fontFamily = FontFamily.Default,
-                textDecoration = TextDecoration.Underline,
-                color = PurpleGrey80
-            )
-        )
-    }*/
+
+
     Column(
         modifier = Modifier
-            .padding(26.dp)
+            .padding(55.dp)
             .fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(18.dp, alignment = Alignment.Bottom),
+        verticalArrangement = Arrangement.spacedBy(16.dp, alignment = Alignment.Bottom),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         var correo by remember { mutableStateOf(Constantes.NO_VALUE) }
         var contraseña by remember { mutableStateOf(Constantes.NO_VALUE) }
 
+        Text(
+            text = "MySecurityApp",
+            style = TextStyle(fontSize = 60.sp, fontFamily = FontFamily.Cursive)
+        )
         Icon(
             painter = painterResource(id = R.drawable.baseline_security_24), null,
-            Modifier.size(80.dp),
+            Modifier
+                .size(80.dp),
             tint = Color.White
         )
+        Text(
+            text = "",
+            style = TextStyle(fontSize = 5.sp)
+        )
         TextField(
-            label = { Text(text = "Username") },
+            label = { Text(text = "Correo") },
             value = correo,
             onValueChange = { correo = it },
             leadingIcon = {
@@ -115,9 +114,10 @@ fun LoginScreen(
         Divider(
             color = Color.White.copy(alpha = 0.3f),
             thickness = 1.dp,
-            modifier = Modifier.padding(top = 48.dp)
+            modifier = Modifier.padding(top = 45.dp)
         )
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.padding(top = 15.dp)) {
 
             Text(text = "¿No tienes cuenta aún?", color = Color.White)
             TextButton(onClick = { navController.navigate("signup") }) {
