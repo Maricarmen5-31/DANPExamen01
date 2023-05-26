@@ -1,4 +1,4 @@
-package com.example.danpexamen01.interfaces
+package com.example.danpexamen01.interfaces.listaIncidentes
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,10 +19,9 @@ import com.example.danpexamen01.domain.model.IncidenciaEntity
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun IncidenciaCard(
-    navController: NavController,
-    incidenciaEntity: IncidenciaEntity
-
-    ){
+    incidencia: IncidenciaEntity,
+    navController: NavController
+){
     Card(
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier
@@ -45,9 +44,9 @@ fun IncidenciaCard(
             verticalAlignment = Alignment.CenterVertically
         ){
             Column() {
-                Text(incidenciaEntity.nombre)
-                Text(text = incidenciaEntity.distrito)
-                Text(text = incidenciaEntity.fecha)
+                Text(text = incidencia.nombre)
+                Text(text = incidencia.distrito)
+                Text(text = incidencia.fecha)
             }
             Spacer(
                 modifier = Modifier.weight(1f)

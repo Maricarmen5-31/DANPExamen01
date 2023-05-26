@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.danpexamen01.data.repository.RepositoryImpl
 import com.example.danpexamen01.domain.model.IncidenciaEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -13,10 +12,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import com.example.danpexamen01.core.Constantes.Companion.NO_VALUE
 import com.example.danpexamen01.domain.model.UsuarioEntity
+import com.example.danpexamen01.domain.repository.Repository
 
 @HiltViewModel
 class ViewModel @Inject constructor(
-    private val repository: RepositoryImpl
+    private val repository: Repository
 ): ViewModel(){
 
     var incidencia by mutableStateOf(IncidenciaEntity(0, NO_VALUE,NO_VALUE,NO_VALUE,NO_VALUE,NO_VALUE,NO_VALUE,NO_VALUE,NO_VALUE,NO_VALUE))
